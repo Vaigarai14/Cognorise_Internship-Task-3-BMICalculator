@@ -2,7 +2,7 @@
   padding: 2em;
   margin: 5em auto;
   width: fit-content;
-  height: 30em;
+  height: max-content;
   display: flex;
   justify-content: center;
   box-shadow: 20px 20px 20px 5px rgb(190, 190, 190);
@@ -31,23 +31,6 @@
   cursor: pointer;
 }
 
-/* image select */
-
-/* #image img {
-  border-radius: 50%;
-  border: 5px green solid;
-} */
-
-/* #age {
-  display: block;
-} */
-
-#inputs {
-  width: 100%;
-  display: inline-flex;
-  justify-content: center;
-}
-
 #inputs input {
   padding: 1em;
   border-radius: 0.5em;
@@ -59,9 +42,21 @@
   font-size: medium;
 }
 
+/* #inputs {
+  display: flex;
+} */
+
+#inputs .input-group {
+  display: inline-flex;
+}
+
 #btn {
   display: flex;
   justify-content: center;
+}
+
+#inputs input:focus {
+  outline: none;
 }
 
 #btn > button {
@@ -83,5 +78,27 @@
   font-weight: 700;
 }
 
-#male #female {
+#notvalidage,
+#notvalidweight,
+#notvalidheight {
+  color: red;
+  text-align: left;
+  margin: 0.4em 1.5em;
 }
+
+/* image select */
+
+.selectedimg {
+  border-radius: 50%;
+  border: 5px green solid;
+}
+
+/* inputnotvalid  */
+
+/* #age {
+  display: block;
+} */
+
+/* #inputs {
+  width: 100%;
+} */

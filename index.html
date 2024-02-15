@@ -13,21 +13,41 @@
         <div id="image">
           <div>
             <!-- <input type="radio" name="Male" id="male" value="Male" /> -->
-            <img src="./assets/vetor image (2).jpg" alt="image" />
+            <img
+              aria-required="required"
+              id="male"
+              src="./assets/vetor image (2).jpg"
+              alt="image"
+            />
           </div>
           <div>
             <!-- <input type="radio" name="Male" id="female" value="Female" /> -->
-            <img src="./assets/female vetor.jpg" alt="image " />
+            <img
+              id="female"
+              aria-required="required"
+              src="./assets/female vetor.jpg"
+              alt="image "
+            />
           </div>
         </div>
-        <div id="inputs">
-          <input id="age" type="number" placeholder="Enter Your Age " />
-          <input type="number" placeholder="Weight" />
-          <input type="number" placeholder="Height" />
-        </div>
-        <div id="btn">
-          <button>CalCulate</button>
-        </div>
+        <form action="" id="inputs">
+          <div class="input-group">
+            <input id="age" type="number" placeholder="Enter Your Age " />
+            <div id="errorage"></div>
+          </div>
+          <div class="input-group">
+            <input id="weight" type="number" placeholder="Weight" />
+            <div id="errorweight"></div>
+          </div>
+          <div class="input-group">
+            <input id="height" type="number" placeholder="Height" />
+            <div id="errorheight"></dvi>
+          </div>
+          </div>
+          <div id="btn">
+            <button type="submit" id="calcbtn">CalCulate</button>
+          </div>
+        </form>
       </div>
     </div>
     <script src="./main.js"></script>
