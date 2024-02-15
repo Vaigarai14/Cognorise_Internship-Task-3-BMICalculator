@@ -8,8 +8,6 @@ let maleimg = document.getElementById('male')
 let femaleimg = document.getElementById('female')
 let info = document.getElementById('info');
 
-
-
 image.addEventListener('click', ((e) => {
     if (e.target.id === 'male') {
         femaleimg.className = ""
@@ -25,9 +23,6 @@ image.addEventListener('click', ((e) => {
 
 }))
 
-console.log(maleimg.classList.value);
-console.log(femaleimg.classList);
-
 let inputgroup = document.querySelectorAll('.input-group')
 let formele = document.querySelector('form')
 
@@ -38,7 +33,7 @@ formele.addEventListener('submit', ((e) => {
     if (ageele.value !== "" ||
         weightele.value !== "" ||
         heightele.value !== "") {
-        calculation(e)
+        calculation()
     }
 
     if (maleimg.className === "" && femaleimg.className === "") {
@@ -71,17 +66,17 @@ formele.addEventListener('submit', ((e) => {
 
 let message = document.getElementById('message');
 
-function calculation(e) {
-    console.log(e.target.previousElementSibling);
-    // let a = e.target.parentElement
+function calculation() {
+
+    // console.log();
+    // let a = e.target.previousElementSibling
     // let b = a.querySelector('img')
-    // console.log(b.classList !== '', b.id, b.id === 'female');
+    // console.log(b.classList !== 'selectedimg', b.id, b.id === 'female');
     // console.log(b.classList);
-    // if (b.classList !== '', b.id === 'male') {
+    // if (b.classList !== 'selectedimg', b.id === 'male') {
     //     info.innerText = `${weightele.value}Kg | ${heightele.value}Cm | Male | ${ageele.value}yr old `
     // }
-    // else if (b.classList !== '', b.id === 'female') {
-    //     info.innerText = `${weightele.value}Kg | ${heightele.value}Cm | Female | ${ageele.value}yr old `
+    // else if (b.classList !== 'selectedimg', b.id === 'female') {
     // }
 
     cm = Number(heightele.value) / 100 * Number(heightele.value) / 100
@@ -90,15 +85,20 @@ function calculation(e) {
 
     output.innerText = res
 
+    info.innerText = `${weightele.value}Kg | ${heightele.value}Cm | ${ageele.value}yr old `
 
     if (res < 18.5) {
         message.innerText = "Your'e Underweight"
+        message.style.color = 'red'
     }
     else if (res > 24.9) {
         message.innerText = "Your'e Overweight"
+        message.style.color = 'red'
+
     }
     else if (res > 18.5 && res < 24.9) {
         message.innerText = "Healthy Weight"
+        message.style.color = 'green'
     }
 }
 

@@ -128,3 +128,21 @@ input {
 h3 {
   font-size: large;
 }
+
+@media screen and (max-width: 480px) {
+  body {
+    background-color: lightgreen;
+  }
+
+  #image img {
+    width: 8em;
+    height: 8em;
+  }
+
+  #inputs .input-group {
+    display: block;
+  }
+  input {
+    width: 90%;
+  }
+}
