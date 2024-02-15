@@ -2,6 +2,7 @@
   padding: 2em;
   margin: 5em auto;
   width: fit-content;
+  height: 30em;
   display: flex;
   justify-content: center;
   box-shadow: 20px 20px 20px 5px rgb(190, 190, 190);
@@ -27,7 +28,15 @@
   background-color: blue;
   width: 15em;
   height: 15em;
+  cursor: pointer;
 }
+
+/* image select */
+
+/* #image img {
+  border-radius: 50%;
+  border: 5px green solid;
+} */
 
 /* #age {
   display: block;
