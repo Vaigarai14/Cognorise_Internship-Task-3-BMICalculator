@@ -1,11 +1,7 @@
 const weightele = document.getElementById('weight')
 const heightele = document.getElementById('height')
 const ageele = document.getElementById('age')
-const calcbtn = document.getElementById('calcbtn')
-
-let errorage = document.getElementById('notvalidage')
-let errorweight = document.getElementById('notvalidweight')
-let errorheight = document.getElementById('notvalidheight')
+const calcbtn = document.querySelector('button')
 
 let image = document.getElementById('image')
 let maleimg = document.getElementById('male')
@@ -28,18 +24,70 @@ image.addEventListener('click', ((e) => {
         console.log(femsg);
         return femsg
     }
-
 }))
+let inputgroup = document.querySelectorAll('.input-group')
+let formele = document.querySelector('form')
 
+formele.addEventListener('submit', ((e) => {
+    e.preventDefault()
+    console.log(e);
+    if (ageele.value !== "" ||
+        weightele.value !== "" ||
+        heightele.value !== "") {
+        console.log(ageele.value);
+        console.log(weightele.value);
+        console.log(heightele.value);
 
-calcbtn.addEventListener('click', ((event) => {
+        
+    }
+
     if (maleimg.className === "" && femaleimg.className === "") {
         alert('Select the gender')
     }
-    console.log(notvalidage.value);
-    console.log(notvalidheight.value);
-    console.log(notvalidweight.value);
-    notvalidage.value === undefined ? notvalidage.innerText = "Enter Your Age" : notvalidage.innerText = ""
-    notvalidheight.value === undefined ? notvalidheight.innerText = "Enter Your Height" : notvalidheight.innerText = ""
-    notvalidweight.value === undefined ? notvalidweight.innerText = "Enter Your Weight" : notvalidweight.innerText = ""
+
+    if (ageele.value === "") {
+        seterror(ageele, "Age is required")
+    }
+    else if (ageele.value < 1 || ageele.value > 100) {
+        seterror(ageele, "Invalid age")
+    }
+    else {
+        setsucess(ageele)
+    }
+    console.log(weightele.value === null)
+    if (weightele.value === "") {
+        seterror(weightele, "Enter your weight")
+    }
+    else {
+        setsucess(weightele)
+    }
+    if (heightele.value === "") {
+        seterror(heightele, "Enter your height")
+    }
+    else {
+        setsucess(heightele)
+    }
+
 }))
+
+function seterror(element, message) {
+    let input = element.parentElement
+    console.log(input);
+    let errorele = input.querySelector('.errored')
+    console.log(errorele);
+    errorele.innerText = message
+
+    element.classList.add('error')
+    input.classList.add('error')
+    input.classList.remove('success')
+    element.classList.remove('success')
+}
+
+function setsucess(element) {
+    let input = element.parentElement
+    let errorele = input.querySelector('.errored')
+
+    errorele.innerText = ""
+    element.classList.remove('error')
+    element.classList.add('success')
+}
