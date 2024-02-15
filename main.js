@@ -6,41 +6,39 @@ const calcbtn = document.querySelector('button')
 let image = document.getElementById('image')
 let maleimg = document.getElementById('male')
 let femaleimg = document.getElementById('female')
+let info = document.getElementById('info');
+
+
 
 image.addEventListener('click', ((e) => {
-    console.log(femaleimg.className === "");
     if (e.target.id === 'male') {
         femaleimg.className = ""
         maleimg.classList.toggle('selectedimg')
         mamsg = e.target.classList.value
-        console.log(mamsg);
-        return mamsg
     }
 
     else if (e.target.id === 'female') {
         maleimg.className = ""
         femaleimg.classList.toggle('selectedimg')
         femsg = e.target.classList.value
-        console.log(femsg);
-        return femsg
     }
+
 }))
+
+console.log(maleimg.classList.value);
+console.log(femaleimg.classList);
+
 let inputgroup = document.querySelectorAll('.input-group')
 let formele = document.querySelector('form')
-
-// console.log(typeof (ageele.value));
-// console.log(weightele.value);
-// console.log(heightele.value);
 
 let output = document.getElementById('output')
 
 formele.addEventListener('submit', ((e) => {
     e.preventDefault()
-    console.log(e);
     if (ageele.value !== "" ||
         weightele.value !== "" ||
         heightele.value !== "") {
-        calculation()
+        calculation(e)
     }
 
     if (maleimg.className === "" && femaleimg.className === "") {
@@ -56,7 +54,6 @@ formele.addEventListener('submit', ((e) => {
     else {
         setsucess(ageele)
     }
-    console.log(weightele.value === null)
     if (weightele.value === "") {
         seterror(weightele, "Enter your weight")
     }
@@ -72,17 +69,28 @@ formele.addEventListener('submit', ((e) => {
 
 }))
 
-let info = document.getElementById('info');
 let message = document.getElementById('message');
-console.log(info);
 
-function calculation() {
+function calculation(e) {
+    console.log(e.target.previousElementSibling);
+    // let a = e.target.parentElement
+    // let b = a.querySelector('img')
+    // console.log(b.classList !== '', b.id, b.id === 'female');
+    // console.log(b.classList);
+    // if (b.classList !== '', b.id === 'male') {
+    //     info.innerText = `${weightele.value}Kg | ${heightele.value}Cm | Male | ${ageele.value}yr old `
+    // }
+    // else if (b.classList !== '', b.id === 'female') {
+    //     info.innerText = `${weightele.value}Kg | ${heightele.value}Cm | Female | ${ageele.value}yr old `
+    // }
 
     cm = Number(heightele.value) / 100 * Number(heightele.value) / 100
     cal = Number(weightele.value) / cm
     let res = cal.toString().slice(0, 4)
+
     output.innerText = res
-    info.innerText = `${weightele.value}Kg | ${heightele.value}Cm | ${ageele.value}yr old `
+
+
     if (res < 18.5) {
         message.innerText = "Your'e Underweight"
     }
@@ -96,9 +104,7 @@ function calculation() {
 
 function seterror(element, message) {
     let input = element.parentElement
-    console.log(input);
     let errorele = input.querySelector('.errored')
-    console.log(errorele);
     errorele.innerText = message
 
     element.classList.add('error')
