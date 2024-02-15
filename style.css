@@ -1,0 +1,78 @@
+#container {
+  padding: 2em;
+  margin: 5em auto;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  box-shadow: 20px 20px 20px 5px rgb(190, 190, 190);
+}
+
+#container h1 {
+  text-align: center;
+}
+
+#object h1 {
+  text-transform: uppercase;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: cornflowerblue;
+}
+
+#image {
+  display: flex;
+  justify-content: center;
+}
+
+#image img {
+  margin: 1em;
+  background-color: blue;
+  width: 15em;
+  height: 15em;
+}
+
+/* #age {
+  display: block;
+} */
+
+#inputs {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+}
+
+#inputs input {
+  padding: 1em;
+  border-radius: 0.5em;
+  margin: 0.5em;
+  outline-color: none;
+  border: none;
+  background-color: rgb(250, 250, 250);
+  box-shadow: 5px 5px 10px 5px gainsboro;
+  font-size: medium;
+}
+
+#btn {
+  display: flex;
+  justify-content: center;
+}
+
+#btn > button {
+  background-color: cornflowerblue;
+  border-radius: 0.5em;
+  font-size: large;
+  color: azure;
+  font-family: sans-serif;
+  padding: 0.5em 3em;
+  margin: 0.5em;
+  cursor: pointer;
+  border: none;
+}
+
+#btn > button:hover {
+  background-color: white;
+  color: cornflowerblue;
+  border: 3px solid cornflowerblue;
+  font-weight: 700;
+}
+
+#male #female {
+}
