@@ -28,17 +28,19 @@ image.addEventListener('click', ((e) => {
 let inputgroup = document.querySelectorAll('.input-group')
 let formele = document.querySelector('form')
 
+// console.log(typeof (ageele.value));
+// console.log(weightele.value);
+// console.log(heightele.value);
+
+let output = document.getElementById('output')
+
 formele.addEventListener('submit', ((e) => {
     e.preventDefault()
     console.log(e);
     if (ageele.value !== "" ||
         weightele.value !== "" ||
         heightele.value !== "") {
-        console.log(ageele.value);
-        console.log(weightele.value);
-        console.log(heightele.value);
-
-        
+        calculation()
     }
 
     if (maleimg.className === "" && femaleimg.className === "") {
@@ -69,6 +71,28 @@ formele.addEventListener('submit', ((e) => {
     }
 
 }))
+
+let info = document.getElementById('info');
+let message = document.getElementById('message');
+console.log(info);
+
+function calculation() {
+
+    cm = Number(heightele.value) / 100 * Number(heightele.value) / 100
+    cal = Number(weightele.value) / cm
+    let res = cal.toString().slice(0, 4)
+    output.innerText = res
+    info.innerText = `${weightele.value}Kg | ${heightele.value}Cm | ${ageele.value}yr old `
+    if (res < 18.5) {
+        message.innerText = "Your'e Underweight"
+    }
+    else if (res > 24.9) {
+        message.innerText = "Your'e Overweight"
+    }
+    else if (res > 18.5 && res < 24.9) {
+        message.innerText = "Healthy Weight"
+    }
+}
 
 function seterror(element, message) {
     let input = element.parentElement
