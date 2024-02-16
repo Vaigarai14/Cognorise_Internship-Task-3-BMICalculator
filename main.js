@@ -8,20 +8,19 @@ let maleimg = document.getElementById('male')
 let femaleimg = document.getElementById('female')
 let info = document.getElementById('info');
 
+
 image.addEventListener('click', ((e) => {
     if (e.target.id === 'male') {
         femaleimg.className = ""
         maleimg.classList.toggle('selectedimg')
-        mamsg = e.target.classList.value
     }
 
     else if (e.target.id === 'female') {
         maleimg.className = ""
         femaleimg.classList.toggle('selectedimg')
-        femsg = e.target.classList.value
     }
-
 }))
+
 
 let inputgroup = document.querySelectorAll('.input-group')
 let formele = document.querySelector('form')
@@ -30,14 +29,23 @@ let output = document.getElementById('output')
 
 formele.addEventListener('submit', ((e) => {
     e.preventDefault()
-    if (ageele.value !== "" ||
-        weightele.value !== "" ||
-        heightele.value !== "") {
+    if (ageele.value !== "" &&
+        weightele.value !== "" &&
+        heightele.value !== "" &&
+        maleimg.className !== "" ||
+        femaleimg.className !== ""
+    ) {
         calculation()
     }
 
     if (maleimg.className === "" && femaleimg.className === "") {
         alert('Select the gender')
+    }
+    else if (maleimg.className !== "") {
+        info.innerText = `${weightele.value}Kg | ${heightele.value}Cm | Male |  ${ageele.value}yr old `
+    }
+    else if (maleimg.className === "") {
+        info.innerText = `${weightele.value}Kg | ${heightele.value}Cm | Female |  ${ageele.value}yr old `
     }
 
     if (ageele.value === "") {
@@ -62,22 +70,12 @@ formele.addEventListener('submit', ((e) => {
         setsucess(heightele)
     }
 
+
 }))
 
 let message = document.getElementById('message');
 
 function calculation() {
-
-    // console.log();
-    // let a = e.target.previousElementSibling
-    // let b = a.querySelector('img')
-    // console.log(b.classList !== 'selectedimg', b.id, b.id === 'female');
-    // console.log(b.classList);
-    // if (b.classList !== 'selectedimg', b.id === 'male') {
-    //     info.innerText = `${weightele.value}Kg | ${heightele.value}Cm | Male | ${ageele.value}yr old `
-    // }
-    // else if (b.classList !== 'selectedimg', b.id === 'female') {
-    // }
 
     cm = Number(heightele.value) / 100 * Number(heightele.value) / 100
     cal = Number(weightele.value) / cm
@@ -85,7 +83,6 @@ function calculation() {
 
     output.innerText = res
 
-    info.innerText = `${weightele.value}Kg | ${heightele.value}Cm | ${ageele.value}yr old `
 
     if (res < 18.5) {
         message.innerText = "Your'e Underweight"
@@ -99,7 +96,10 @@ function calculation() {
     else if (res > 18.5 && res < 24.9) {
         message.innerText = "Healthy Weight"
         message.style.color = 'green'
+
     }
+
+
 }
 
 function seterror(element, message) {
