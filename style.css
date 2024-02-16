@@ -123,10 +123,10 @@ h3 {
   font-size: large;
 }
 
-/* @media screen and (max-width: 480px) {
-  #container,
-  #object {
+@media screen and (max-width: 480px) {
+  #container {
     overflow: hidden;
+    box-shadow: 2px 2px 2px 2px gainsboro;
   }
 
   #image img {
@@ -155,4 +155,4 @@ h3 {
     font-size: small;
     margin: 0 2em;
   }
-} */
+}
