@@ -88,16 +88,16 @@ function calculation() {
 
 
         if (res < 18.5) {
-            message.innerText = "Your'e Underweight"
+            message.innerText = "You are Underweight 😕"
             message.style.color = 'red'
         }
         else if (res > 24.9) {
-            message.innerText = "Your'e Overweight"
+            message.innerText = "You are Overweight 🙀"
             message.style.color = 'red'
 
         }
         else if (res > 18.5 && res < 24.9) {
-            message.innerText = "Healthy Weight"
+            message.innerText = "Healthy Weight 😇"
             message.style.color = 'green'
 
         }
