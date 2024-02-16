@@ -27,12 +27,14 @@ input {
   justify-content: center;
 }
 
-#image img {
+img {
   margin: 1em;
   background-color: blue;
   width: 10em;
   height: 10em;
   cursor: pointer;
+  border-radius: 50%;
+  border: 5px solid gainsboro;
 }
 
 #inputs input {
@@ -101,7 +103,7 @@ input {
 
 /*  */
 
-.selectedimg {
+img.selectedimg {
   border-radius: 50%;
   border: 5px green solid;
 }
