@@ -1,7 +1,6 @@
 const weightele = document.getElementById('weight')
 const heightele = document.getElementById('height')
 const ageele = document.getElementById('age')
-const calcbtn = document.querySelector('button')
 
 let image = document.getElementById('image')
 let maleimg = document.getElementById('male')
@@ -77,28 +76,32 @@ let message = document.getElementById('message');
 
 function calculation() {
 
-    cm = Number(heightele.value) / 100 * Number(heightele.value) / 100
-    cal = Number(weightele.value) / cm
-    let res = cal.toString().slice(0, 4)
+    if (ageele.value !== "" &&
+        weightele.value !== "" &&
+        heightele.value !== "") {
 
-    output.innerText = res
+        cm = Number(heightele.value) / 100 * Number(heightele.value) / 100
+        cal = Number(weightele.value) / cm
+        let res = cal.toString().slice(0, 4)
+
+        output.innerText = res
 
 
-    if (res < 18.5) {
-        message.innerText = "Your'e Underweight"
-        message.style.color = 'red'
+        if (res < 18.5) {
+            message.innerText = "Your'e Underweight"
+            message.style.color = 'red'
+        }
+        else if (res > 24.9) {
+            message.innerText = "Your'e Overweight"
+            message.style.color = 'red'
+
+        }
+        else if (res > 18.5 && res < 24.9) {
+            message.innerText = "Healthy Weight"
+            message.style.color = 'green'
+
+        }
     }
-    else if (res > 24.9) {
-        message.innerText = "Your'e Overweight"
-        message.style.color = 'red'
-
-    }
-    else if (res > 18.5 && res < 24.9) {
-        message.innerText = "Healthy Weight"
-        message.style.color = 'green'
-
-    }
-
 
 }
 
